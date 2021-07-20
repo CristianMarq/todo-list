@@ -1,12 +1,13 @@
 import "./styles.css";
 
 import { TodoClass, TodoList } from "./classes";
+import { crearTodoHtml } from "./js/componentes";
 
 const todoList = new TodoList();
 const todo = new TodoClass("Aprender react Js");
-const todo2 = new TodoClass("Aprender ingles");
 
 todoList.nuevoTodo(todo);
-todoList.nuevoTodo(todo2);
 
 console.log(todoList);
+
+crearTodoHtml(todo);
