@@ -1,3 +1,5 @@
+import { todoList } from "..";
+
 export class TodoList {
   _todos;
 
@@ -11,7 +13,14 @@ export class TodoList {
 
   eliminarTodo(id) {}
 
-  marcarCompletado(id) {}
+  marcarCompletado(id) {
+    for (const todo of this._todos) {
+      if (todo._id == id) {
+        todo._completado = !todo._completado;
+        break;
+      }
+    }
+  }
 
   eliminarCompletados() {}
 }
