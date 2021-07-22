@@ -4,6 +4,7 @@ import { todoList } from "../index";
 // Referencias al html
 const divTodoList = document.querySelector(".todo-list");
 const inputTodo = document.querySelector(".new-todo");
+const clearButtom = document.querySelector(".clear-completed");
 
 const stringToHtml = (string) => {
   const parser = new DOMParser();
@@ -55,3 +56,13 @@ divTodoList.addEventListener("click", (event) => {
   }
 });
 
+clearButtom.addEventListener("click", () => {
+  todoList.eliminarCompletados();
+
+  for (let i = divTodoList.children.length - 1; i >= 0; i--) {
+    const elemento = divTodoList.children[i];
+    if (elemento.classList.contains("completed")) {
+      divTodoList.removeChild(elemento);
+    }
+  }
+});
