@@ -1,4 +1,4 @@
-import { todoList } from "..";
+import { TodoClass } from "./index";
 
 export class TodoList {
   // _todos;
@@ -41,5 +41,7 @@ export class TodoList {
     this._todos = localStorage.getItem("todo")
       ? JSON.parse(localStorage.getItem("todo"))
       : [];
+
+    this._todos = this._todos.map((obj) => TodoClass.fromJson(obj));
   }
 }
